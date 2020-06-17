@@ -1,22 +1,65 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+
 *{
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-}
-header{
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 30px 10%;
-}
-.logo{
-	cursor: pointer;
-}
-.nav_links{
+	text-decoration: none;
 	list-style: none;
+	box-sizing: border-box;
 }
-.nav_links li{
-	display: inline-block;
-	padding: 0px 20px;
+body{
+	font-family: Montserrat;
+
+}
+nav{
+	background: #0082e6;
+	height: 80px;
+	width: 100%;
+}
+a.logo{
+	color: white;
+	font-size: 35px;
+	line-height: 80px;
+	padding: 0 50px;
+	font-weight: bold;
+}
+label.logo{
+	color: white;
+	font-size: 35px;
+	line-height: 80px;
+	padding: 0 50px;
+	font-weight: bold;
+}
+
+nav ul{
+	float: right;
+	margin-right: 20px;
+}
+nav ul li{
+display: inline-block;
+line-height: 80px;
+margin: 0 5px;
+}
+nav ul li a{
+	color: white;
+	font-size: 17px;
+	padding: 7px 13px;
+	border-radius: 3px;
+	text-transform: uppercase;
+}
+a.activa,a:hover{
+background: #1b9bff;
+transition: .5s;
+}
+.checkbtn{
+	font-size: 30px;
+	color: white;
+	float: right;
+	line-height: 80px;
+	margin-right: 40px;
+	cursor: pointer;
+	display: none;
+}
+#check{
+	display: none;
 }

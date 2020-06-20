@@ -15,6 +15,7 @@
 		 	$pu_texto=$row['pu_texto'];
             $pu_fecha=$row['pu_fecha'];
             $pu_id=$row['pu_id'];
+           // $bo="DELETE FROM publicacion WHERE pu_us_id='us_id'";
             $fecha = date('Y-m-j H:i:s',strtotime($pu_fecha)); //inicializo la fecha con la hora           
             $nuevafecha = date('H:i:s',strtotime($pu_fecha));
             $dia = date("j",strtotime($fecha)); 
@@ -38,12 +39,14 @@
             $f="Publicado el ".$dia." de ".$m." de ".$anio." a las ".$nuevafecha." hrs";
             $sqlcount = "SELECT COUNT(*) as total FROM comentario WHERE co_pu_id=$pu_id";
             $rcount = $cx->query($sqlcount);
-            $rx=$rcount->fetch_array();  
+            $rx=$rcount->fetch_array(); 
+            //$borra=$cx->query($bo);
             $textComentarios="";
             switch ($rx['total']) {
                 case 0: $textComentarios="0 comentarios"; break;
                 case 1: $textComentarios="1 comentario"; break;
                 default: $textComentarios=$rx['total']." comentarios"; break;
+
             }          
 		 	$response.='
                     <div class="item mb-5">
@@ -51,7 +54,7 @@
                         <img class="mr-3 img-fluid post-thumb d-md-flex" src="'.$us_foto.'" alt="image" style="border-radius:100%">
                         <div class="media-body">
                             <h3 class="title mb-1"><a href="perfil.html">'.$nombre.'</a></h3>
-                            <div class="meta mb-1"><span class="date">'.$f.'</span><span class="comment"><a href="#">'.$textComentarios.'</a></span></div>
+                            <div class="meta mb-1"><span class="date">'.$f.'</span><span class="comment"><input type="button" class=" form-control btn" onclick="borra('. $pu_id.')" value="Eliminar publicacion"></span></div>
                             <div class="intro">'.$pu_texto.'</div> 
                         </div><!--//media-body-->
                     </div><!--//media-->

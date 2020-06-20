@@ -164,7 +164,7 @@ function eliminarUsuario() {
     var user=localStorage.getItem('sesion');
     $.ajax(
     {
-        url:urlServer+"php/eliminarUsuario.php", 
+        url:urlServer+"php/login/eliminarUsuario.php", 
         type: "POST",
         data: 
         {
@@ -175,9 +175,8 @@ function eliminarUsuario() {
         {
             if (response.success==true)
             {                   
-                cambiarNombre(response.us_usuario,response.us_nombre);
-                mensaje("msj_eliminar_usuario", "texto_eliminar_usuario",response.mensaje)
-                cerrarSesion()
+                mensaje("msj_eliminar_usuario", "texto_eliminar_usuario",response.mensaje);
+                cerrarSesion();
             }
             else
             {
@@ -418,6 +417,7 @@ function publicar() {
 				{
 					$("#publicacion").val('');
                     actualizarPost();
+                    actualizarMisPost();
 					mensaje("msj_publicacion", "texto_publicacion", response.mensaje,"success")				        		
 				}
 				else
@@ -456,3 +456,26 @@ function actualizarMisPost() {
             }
         });
 }
+function borra(Id_publicacion) {
+    var pu_id=Id_publicacion;
+   $.ajax(
+        {
+            url: urlServer+"php/login/eliminarPubli.php", 
+            type: "POST",
+            data: {pu_id},
+            dataType: 'json',
+             success:function (response) 
+        {
+            if (response.success==true)
+            {                           
+                actualizarMisPost();
+                mensaje("msj_eliminar_publicacion", "texto_eliminar_publicacion",response.mensaje);
+            }
+            else
+            {
+                mensaje("msj_eliminar_publicacion","texto_eliminar_publicacion",response.mensaje);
+            }
+        }
+        });
+}
+

@@ -4,8 +4,8 @@
 	session_start();
 	$response= array('success' => false, 'mensaje'=>"");
 
-	$user=$_POST['usuario'];
-	$sql="DELETE FROM usuario WHERE us_usuario='$user'";
+	$pu_id=$_POST['pu_id'];
+	$sql="DELETE FROM publicacion WHERE pu_id='$pu_id'";
 
 	if($cx->query($sql) === TRUE) {
 		$response['success']=true;
@@ -14,7 +14,7 @@
 	else
 	{
 		$response['success']=false;
-		$response['mensaje']="ERROR AL ELIMINAR CUENTA";
+		$response['mensaje']="ERROR AL ELIMINAR PUBLICACION";
 	}
 
 	echo json_encode($response); 	

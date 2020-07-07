@@ -65,33 +65,32 @@ function cambiarNombre(user, name) {
 
 function editarUsuario() {
   const $editName = $("#edit_nombre");
+  const $editImage = $('#Imagen');
+  const $password = $("#password");
+  const $editPass1 = $('#edit_new_password');
+  const $editPass2 = $("#edit_rep_password");
 
   const nombre = $editName.val();
-  const imagen = $("#Imagen").val();
-  const pass_anterior = $("#password").val();
-  const pass1 = $("#edit_new_password").val();
-  const pass2 = $("#edit_rep_password").val();
+  const imagen = $editImage.val();
+  const pass_anterior = $password.val();
+  const pass1 = $editPass1.val();
+  const pass2 = $editPass2.val();
 
   $fieldEditName = $editName.closest(".form-group");
   $fieldEditName
     .toggleClass("has-succes", nombre)
     .toogleClass("has-error", !nombre);
 
-  if (pass_anterior) {
-    $("#password").closest(".form-group").removeClass("has-success");
-    $("#password").closest(".form-group").addClass("has-error");
-  } else {
-    $("#password").closest(".form-group").removeClass("has-error");
-    $("#password").closest(".form-group").addClass("has-success");
-  }
+  $fieldOldPass = $password.closest(".form-group");
+  $fieldOldPass
+    .toggleClass("has-succes", pass_anterior)
+    .toogleClass("has-error", !pass_anterior);
 
-  if (imagen == "") {
-    $("#Imagen").closest(".form-group").removeClass("has-success");
-    $("#Imagen").closest(".form-group").addClass("has-error");
-  } else {
-    $("#Imagen").closest(".form-group").removeClass("has-error");
-    $("#Imagen").closest(".form-group").addClass("has-success");
-  }
+  $fieldEditImage = $editImage.closest(".form-group");
+  $fieldEditImage
+    .toggleClass("has-succes", imagen)
+    .toogleClass("has-error", !imagen);
+
 
   let errorMesagge = "";
   if (!nombre) {
@@ -120,9 +119,9 @@ function editarUsuario() {
   $.post(urlServer + "php/login/editarUsuario.php", formData).then(function (
     response
   ) {
-    $("#password").val("");
-    $("#edit_new_password").val("");
-    $("#edit_rep_password").val("");
+    $password.val("");
+    $editPass1.val("");
+    $editPass2.val("");
 
     if (!response.success) {
       mensaje(
@@ -174,24 +173,21 @@ function eliminarUsuario() {
 
 //METODO POST PARA ENVIAR LOS DATOS A LA BASE DE DATOS DESDE EL SERVIDOR EN LA NUBE DE MYSQL 000WEBHOST
 function loginUsuario() {
-  const u = $("#email").val();
-  const p = $("#password").val();
+  const $email = $('#email');
+  const $password = $('#password');
 
-  if (u == "") {
-    $("#email").closest(".form-group").removeClass("has-success");
-    $("#email").closest(".form-group").addClass("has-error");
-  } else {
-    $("#email").closest(".form-group").removeClass("has-error");
-    $("#email").closest(".form-group").addClass("has-success");
-  }
+  const u = $email.val();
+  const p = $email.val();
 
-  if (p == "") {
-    $("#password").closest(".form-group").removeClass("has-success");
-    $("#password").closest(".form-group").addClass("has-error");
-  } else {
-    $("#password").closest(".form-group").removeClass("has-error");
-    $("#password").closest(".form-group").addClass("has-success");
-  }
+  $fieldEmail = $email.closest(',form-group');
+  $fieldEmail
+    .toggleClass("has-succes", u)
+    .toogleClass("has-error", !u);
+  
+  $fieldPass = $password.closest(',form-group');
+  $fieldPass
+    .toggleClass("has-succes", p)
+    .toogleClass("has-error", !p);
 
   if (u == "" || p == "") {
     mensaje("msj_login", "texto_login", "FALTA LLENAR CAMPOS", "danger");
@@ -239,39 +235,37 @@ function loginUsuario() {
 
 //METDO AJAX PARA ENVIAR DATOS PARA REGISTRAR
 function registrarUsuario() {
-  const u = $("#email").val();
-  const p = $("#password").val();
-  const n = $("#nombre").val();
-  const c = $("#Imagen").val();
+  const $Email = $("#email");
+  const $Password = $('#password');
+  const $Nombre = $("#nombre");
+  const $Imagen = $('#Imagen');
 
-  if (u == "") {
-    $("#email").closest(".form-group").removeClass("has-success");
-    $("#email").closest(".form-group").addClass("has-error");
-  } else {
-    $("#email").closest(".form-group").removeClass("has-error");
-    $("#email").closest(".form-group").addClass("has-success");
+  const u = $Email.val();
+  const p = $Password.val();
+  const n = $Nombre.val();
+  const c = $Imagen.val();
+
+  $fieldEmail = $Email.closest(',form-group');
+  $fieldEmail
+    .toggleClass("has-succes", u)
+    .toogleClass("has-error", !u);
   }
-  if (p == "") {
-    $("#password").closest(".form-group").removeClass("has-success");
-    $("#password").closest(".form-group").addClass("has-error");
-  } else {
-    $("#password").closest(".form-group").removeClass("has-error");
-    $("#password").closest(".form-group").addClass("has-success");
-  }
-  if (n == "") {
-    $("#nombre").closest(".form-group").removeClass("has-success");
-    $("#nombre").closest(".form-group").addClass("has-error");
-  } else {
-    $("#nombre").closest(".form-group").removeClass("has-error");
-    $("#nombre").closest(".form-group").addClass("has-success");
-  }
-  if (c == "") {
-    $("#Imagen").closest(".form-group").removeClass("has-success");
-    $("#Imagen").closest(".form-group").addClass("has-error");
-  } else {
-    $("#Imagen").closest(".form-group").removeClass("has-error");
-    $("#Imagen").closest(".form-group").addClass("has-success");
-  }
+
+  $fieldPassword = $Password.closest(',form-group');
+  $fieldPassword
+    .toggleClass("has-succes", p)
+    .toogleClass("has-error", !p);
+
+  $fieldNombre = $Nombre.closest(',form-group');
+  $fieldNombre
+    .toggleClass("has-succes", n)
+    .toogleClass("has-error", !n);
+
+  $fieldImagen = $Imagen.closest(',form-group');
+  $fieldImagen
+    .toggleClass("has-succes", c)
+    .toogleClass("has-error", !c);
+
   if (u == "" || p == "" || n == "" || c == "") {
     mensaje(
       "msj_registrar",
@@ -395,15 +389,16 @@ function mensaje(selectorPrincipal, selectorSecundario, Mensaje, tipo) {
 }
 
 function publicar() {
-  const publicacion = $("#publicacion").val();
+  const &rPubli = $('#publicacion');
+
+  const publicacion = $rPubli.val();
   const us_id = localStorage.getItem("us_id");
-  if (publicacion == "") {
-    $("#publicacion").closest(".form-group").removeClass("has-success");
-    $("#publicacion").closest(".form-group").addClass("has-error");
-  } else {
-    $("#publicacion").closest(".form-group").removeClass("has-error");
-    $("#publicacion").closest(".form-group").addClass("has-success");
-  }
+
+  $fieldPubli = $rPubli.closest(',form-group');
+  $fieldPubli
+    .toggleClass("has-succes", publicacion)
+    .toogleClass("has-error", !publicacion);
+
   if (publicacion == "") {
     mensaje(
       "msj_publicacion",

@@ -389,7 +389,7 @@ function mensaje(selectorPrincipal, selectorSecundario, Mensaje, tipo) {
 }
 
 function publicar() {
-  const &rPubli = $('#publicacion');
+  const $rPubli = $('#publicacion');
 
   const publicacion = $rPubli.val();
   const us_id = localStorage.getItem("us_id");

@@ -4,48 +4,12 @@
     <title>Mini Facebook</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script defer src="assets/fontawesome/js/all.min.js"></script>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/theme-6.css">
     <link rel="stylesheet" href="assets/css/estilos.css">
     <link rel="stylesheet" href="assets/css/estilinis.css">
-   	<script src="assets/js/jquery-3.5.1.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-	 <script type="text/javascript" src="cordova.js"></script>
-	<script src="js/App.js"></script>
-	<script src="assets/fileinput/js/plugins/canvas-to-blob.min.js" type="text/javascript"></script>	
-	<script src="assets/fileinput/js/plugins/sortable.min.js" type="text/javascript"></script>	
-	<script src="assets/fileinput/js/plugins/purify.min.js" type="text/javascript"></script>
-	<script src="assets/fileinput/js/fileinput.min.js"></script>
 	<link rel="stylesheet" href="assets/fileinput/css/fileinput.min.css">
-	 <script>
-        document.addEventListener("backbutton", onBackKeyDown, false);   
-        function onBackKeyDown() {
-            console.Log("No se puede ir atras")
-        }
-         $(document).ready(function() {
-
-		    $("#Image").fileinput({
-		            overwriteInitial: true,
-		            maxFileSize: 2500,
-		            showClose: false,
-		            showCaption: false,
-		            browseLabel: '',
-		            removeLabel: '',
-		            browseIcon: '<img src="assets/images/folder.png" width=30 height=30>',
-		            removeIcon: '<img src="assets/images/delete.png" width=30 height=30>',
-		            removeTitle: 'Cancel or reset changes',
-		            elErrorContainer: '#kv-avatar-errors-1',
-		            msgErrorClass: 'alert alert-block alert-danger',
-		            defaultPreviewContent: '<img src="assets/images/photo_default.png" id="preview" alt="Profile Image" style="width:100%;">',
-		            layoutTemplates: {
-		                main2: '{preview} {remove} {browse}'
-		            },
-		            allowedFileExtensions: ["jpg", "png", "gif", "JPG", "PNG", "GIF"]
-		        });
-
-		});
-    </script>
+	 
 </head> 
 <body onload="checarSesionPerfil()">   
 
@@ -146,6 +110,42 @@
     
     </div><!--//main-wrapper-->
     	
+    <script src="assets/js/jquery-3.5.1.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	 <script type="text/javascript" src="cordova.js"></script>
+	<script src="js/App.js"></script>
+	<script src="assets/fileinput/js/plugins/canvas-to-blob.min.js" type="text/javascript"></script>	
+	<script src="assets/fileinput/js/plugins/sortable.min.js" type="text/javascript"></script>	
+	<script src="assets/fileinput/js/plugins/purify.min.js" type="text/javascript"></script>
+	<script src="assets/fileinput/js/fileinput.min.js"></script>
+	<script>
+        document.addEventListener("backbutton", onBackKeyDown, false);   
+        function onBackKeyDown() {
+            console.Log("No se puede ir atras")
+        }
+         $(document).ready(function() {
 
+		    $("#Image").fileinput({
+		            overwriteInitial: true,
+		            maxFileSize: 2500,
+		            showClose: false,
+		            showCaption: false,
+		            browseLabel: '',
+		            removeLabel: '',
+		            browseIcon: '<img src="assets/images/folder.png" width=30 height=30>',
+		            removeIcon: '<img src="assets/images/delete.png" width=30 height=30>',
+		            removeTitle: 'Cancel or reset changes',
+		            elErrorContainer: '#kv-avatar-errors-1',
+		            msgErrorClass: 'alert alert-block alert-danger',
+		            defaultPreviewContent: '<img src="assets/images/photo_default.png" id="preview" alt="Profile Image" style="width:100%;">',
+		            layoutTemplates: {
+		                main2: '{preview} {remove} {browse}'
+		            },
+		            allowedFileExtensions: ["jpg", "png", "gif", "JPG", "PNG", "GIF"]
+		        });
+
+		});
+    </script>
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
 </body>
 </html> 

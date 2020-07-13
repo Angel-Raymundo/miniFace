@@ -1,93 +1,107 @@
 <!DOCTYPE html>
-<html lang="en"> 
-<head>
+<html lang="en">
+  <head>
     <title>Mini Facebook</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/theme-6.css">
-    <link rel="stylesheet" href="assets/css/estilos.css">
-    <link rel="stylesheet" href="assets/css/estilinis.css">
-    
-</head> 
-<body onload="checarSesion()">   
-	 
-	    
-	    <nav>           
-			<input type="checkbox" id="check">
-			<label for="check" class="checkbtn">
-				<i class="fas fa-bars"></i>
-			</label>
-					
-		<label class="logo">Mini Face</label>
-							       
-				
-				<ul>
-					<li>
-					    <a href="inicio.html"><i class="fas fa-home fa-fw mr-2"></i>Inicio <span class="sr-only"></span></a>
-					</li>
-					<li>
-					    <a href="biografia.html"><i class="fas fa-bookmark fa-fw mr-2"></i>Biografía</a>
-					</li>
-					<li>
-					    <a href="perfil.html"><i class="fas fa-user-edit fa-fw mr-2"></i>Editar Perfil</a>
-					</li>
-					<li>
-				    <a class="activa" href="javascript:cerrarSesion()"><i class="fas fa-window-close fa-fw mr-2"></i>Cerrar Sesión</a>
-					</li>
-				</ul>
-		</nav>	
-    
-    
-    <div>
-	    <section class="cta-section theme-bg-light py-5">
-		    <div class="container text-center">
-			    <h2 class="heading">Todos los comentarios</h2>
-			    <div class="intro"><h5>Diviertete junto los demas</h5></div>
-			    <div id="msj_publicacion"></div>
-			    <form class="signup-form justify-content-center pt-3">
-                    <div class="form-group">
-                        <textarea name="publicacion" id="publicacion" placeholder="Qué estas pensando?" class="form-control" cols="30" rows="5"></textarea>
-                    </div>
-                    <div class="form-group">
-						<label for="Nombre"></label>
-						<button type="button" class="btn btn-primary" onclick="publicar()">Publicar</button>
-					</div>
-                </form>
-		    </div><!--//container-->
-	    </section>
-	    <section class="blog-list px-3 py-5 p-md-5">
-		    <div class="container">
-		    	<div id="post">	</div>
-			  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/theme-6.css" />
+    <link rel="stylesheet" href="assets/css/estilos.css" />
+    <link rel="stylesheet" href="assets/css/estilinis.css" />
+  </head>
+  <body onload="checarSesion()">
+    <nav>
+      <input type="checkbox" id="check" />
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
 
-				
-		    </div>
-	    </section>
-	    
-	    <footer class="footer text-center py-2 theme-bg-dark">
-		   
-	        <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-            <small class="copyright">Diseñado con <i class="fas fa-heart" style="color: #fb866a;"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank">Rasho</a> para compartir MOMENTOS</small>
-		   
-	    </footer>
-    
-    </div><!--//main-wrapper-->
-    
-    
+      <label class="logo">Mini Face</label>
+
+      <ul>
+        <li>
+          <a href="inicio.html"
+            ><i class="fas fa-home fa-fw mr-2"></i>Inicio
+            <span class="sr-only"></span
+          ></a>
+        </li>
+        <li>
+          <a href="biografia.html"
+            ><i class="fas fa-bookmark fa-fw mr-2"></i>Biografía</a
+          >
+        </li>
+        <li>
+          <a href="perfil.html"
+            ><i class="fas fa-user-edit fa-fw mr-2"></i>Editar Perfil</a
+          >
+        </li>
+        <li>
+          <a class="activa" href="javascript:cerrarSesion()"
+            ><i class="fas fa-window-close fa-fw mr-2"></i>Cerrar Sesión</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <div>
+      <section class="cta-section theme-bg-light py-5">
+        <div class="container text-center">
+          <h2 class="heading">Todos los comentarios</h2>
+          <div class="intro"><h5>Diviertete junto los demas</h5></div>
+          <div id="msj_publicacion"></div>
+          <form class="signup-form justify-content-center pt-3">
+            <div class="form-group">
+              <textarea
+                name="publicacion"
+                id="publicacion"
+                placeholder="Qué estas pensando?"
+                class="form-control"
+                cols="30"
+                rows="5"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="Nombre"></label>
+              <button
+                type="button"
+                class="btn btn-primary"
+                onclick="publicar()"
+              >
+                Publicar
+              </button>
+            </div>
+          </form>
+        </div>
+        <!--//container-->
+      </section>
+      <section class="blog-list px-3 py-5 p-md-5">
+        <div class="container">
+          <div id="post"></div>
+        </div>
+      </section>
+
+      <footer class="footer text-center py-2 theme-bg-dark">
+        <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+        <small class="copyright"
+          >Diseñado con <i class="fas fa-heart" style="color: #fb866a;"></i> by
+          <a href="http://themes.3rdwavemedia.com" target="_blank">Rasho</a>
+          para compartir MOMENTOS</small
+        >
+      </footer>
+    </div>
+    <!--//main-wrapper-->
+
     <script src="js/App.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script>
-        document.addEventListener("backbutton", onBackKeyDown, false);   
-        function onBackKeyDown() {
-            console.Log("No se puede ir atras")
-        }
+      document.addEventListener("backbutton", onBackKeyDown, false);
+      function onBackKeyDown() {
+        console.Log("No se puede ir atras");
+      }
     </script>
     <script src="assets/js/jquery-3.5.1.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script> 
+    <script src="assets/js/bootstrap.min.js"></script>
     <script defer src="assets/fontawesome/js/all.min.js"></script>
-    
-
-</body>
-</html> 
+  </body>
+</html>

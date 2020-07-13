@@ -65,9 +65,9 @@ function cambiarNombre(user, name) {
 
 function editarUsuario() {
   const $editName = $("#edit_nombre");
-  const $editImage = $('#Imagen');
+  const $editImage = $("#Imagen");
   const $password = $("#password");
-  const $editPass1 = $('#edit_new_password');
+  const $editPass1 = $("#edit_new_password");
   const $editPass2 = $("#edit_rep_password");
 
   const nombre = $editName.val();
@@ -90,7 +90,6 @@ function editarUsuario() {
   $fieldEditImage
     .toggleClass("has-succes", imagen)
     .toogleClass("has-error", !imagen);
-
 
   let errorMesagge = "";
   if (!nombre) {
@@ -173,21 +172,17 @@ function eliminarUsuario() {
 
 //METODO POST PARA ENVIAR LOS DATOS A LA BASE DE DATOS DESDE EL SERVIDOR EN LA NUBE DE MYSQL 000WEBHOST
 function loginUsuario() {
-  const $email = $('#email');
-  const $password = $('#password');
+  const $email = $("#email");
+  const $password = $("#password");
 
   const u = $email.val();
   const p = $email.val();
 
-  $fieldEmail = $email.closest(',form-group');
-  $fieldEmail
-    .toggleClass("has-succes", u)
-    .toogleClass("has-error", !u);
-  
-  $fieldPass = $password.closest(',form-group');
-  $fieldPass
-    .toggleClass("has-succes", p)
-    .toogleClass("has-error", !p);
+  $fieldEmail = $email.closest(",form-group");
+  $fieldEmail.toggleClass("has-succes", u).toogleClass("has-error", !u);
+
+  $fieldPass = $password.closest(",form-group");
+  $fieldPass.toggleClass("has-succes", p).toogleClass("has-error", !p);
 
   if (u == "" || p == "") {
     mensaje("msj_login", "texto_login", "FALTA LLENAR CAMPOS", "danger");
@@ -236,35 +231,26 @@ function loginUsuario() {
 //METDO AJAX PARA ENVIAR DATOS PARA REGISTRAR
 function registrarUsuario() {
   const $Email = $("#email");
-  const $Password = $('#password');
+  const $Password = $("#password");
   const $Nombre = $("#nombre");
-  const $Imagen = $('#Imagen');
+  const $Imagen = $("#Imagen");
 
   const u = $Email.val();
   const p = $Password.val();
   const n = $Nombre.val();
   const c = $Imagen.val();
 
-  $fieldEmail = $Email.closest(',form-group');
-  $fieldEmail
-    .toggleClass("has-succes", u)
-    .toogleClass("has-error", !u);
-  }
+  $fieldEmail = $Email.closest(",form-group");
+  $fieldEmail.toggleClass("has-succes", u).toogleClass("has-error", !u);
 
-  $fieldPassword = $Password.closest(',form-group');
-  $fieldPassword
-    .toggleClass("has-succes", p)
-    .toogleClass("has-error", !p);
+  $fieldPassword = $Password.closest(",form-group");
+  $fieldPassword.toggleClass("has-succes", p).toogleClass("has-error", !p);
 
-  $fieldNombre = $Nombre.closest(',form-group');
-  $fieldNombre
-    .toggleClass("has-succes", n)
-    .toogleClass("has-error", !n);
+  $fieldNombre = $Nombre.closest(",form-group");
+  $fieldNombre.toggleClass("has-succes", n).toogleClass("has-error", !n);
 
-  $fieldImagen = $Imagen.closest(',form-group');
-  $fieldImagen
-    .toggleClass("has-succes", c)
-    .toogleClass("has-error", !c);
+  $fieldImagen = $Imagen.closest(",form-group");
+  $fieldImagen.toggleClass("has-succes", c).toogleClass("has-error", !c);
 
   if (u == "" || p == "" || n == "" || c == "") {
     mensaje(
@@ -389,12 +375,12 @@ function mensaje(selectorPrincipal, selectorSecundario, Mensaje, tipo) {
 }
 
 function publicar() {
-  const $rPubli = $('#publicacion');
+  const $rPubli = $("#publicacion");
 
   const publicacion = $rPubli.val();
   const us_id = localStorage.getItem("us_id");
 
-  $fieldPubli = $rPubli.closest(',form-group');
+  $fieldPubli = $rPubli.closest(",form-group");
   $fieldPubli
     .toggleClass("has-succes", publicacion)
     .toogleClass("has-error", !publicacion);

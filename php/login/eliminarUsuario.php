@@ -1,21 +1,20 @@
-<?php 
+<?php
+session_start();
 
-	include ("../config.php");
-	session_start();
-	$response= array('success' => false, 'mensaje'=>"");
+include "../config.php";
 
-	$user=$_POST['usuario'];
-	$sql="DELETE FROM usuario WHERE us_usuario='$user'";
+$response = ['success' => false, 'mensaje' => ""];
 
-	if($cx->query($sql) === TRUE) {
-		$response['success']=true;
-		$response['mensaje']="SE ELIMINO EXITOSAMENTE!!";
-	}
-	else
-	{
-		$response['success']=false;
-		$response['mensaje']="ERROR AL ELIMINAR CUENTA";
-	}
+$user = $_POST['usuario'];
+$sql = "DELETE FROM usuario WHERE us_usuario='$user'";
 
-	echo json_encode($response); 	
- ?>
+if ($cx->query($sql) === true) {
+    $response['success'] = true;
+    $response['mensaje'] = "SE ELIMINO EXITOSAMENTE!!";
+} else {
+    $response['success'] = false;
+    $response['mensaje'] = "ERROR AL ELIMINAR CUENTA";
+}
+
+echo json_encode($response);
+?>

@@ -6,6 +6,13 @@ const sesion = localStorage.getItem("sesion");
 const nombre = localStorage.getItem("us_nombre");
 const foto = urlServer + localStorage.getItem("us_foto");
 
+
+function checarIndex() {
+  if (sesion != null) {
+    $(location).attr("href", "inicio.html");
+  }
+}
+
 function checarSesion() {
   pepito();
   actualizarPost();
@@ -28,18 +35,13 @@ function checarSesionPerfil() {
 }
 
 function pepito() {
-  cambiarNombre(sesion, nombre);
-
-  if (sesion) {
+  if (!sesion) {
     $(location).attr("href", "/");
   }
+
+  cambiarNombre(sesion, nombre);
 }
 
-function checarIndex() {
-  if (sesion != null) {
-    $(location).attr("href", "inicio.html");
-  }
-}
 
 function cambiarNombre(user, name) {
   $.ajax({
@@ -56,6 +58,7 @@ function cambiarNombre(user, name) {
         localStorage.setItem("us_usuario", response.us_usuario);
         localStorage.setItem("us_password", response.us_password);
         localStorage.setItem("us_foto", response.us_foto);
+
         $("#nombreUsuario").html(response.us_nombre);
         $("#fotoUsuario").attr("src", urlServer + response.us_foto);
       }
